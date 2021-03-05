@@ -1,0 +1,100 @@
+<html>
+
+<body style="text-align:center;">
+    <h1 style="color:green;">
+        Scotia Bank
+    </h1>
+
+    <h2>
+        Welcome...
+    </h2>
+
+    <h3 id="uname"></h3>
+
+
+
+    <input type="text" id="user" name="uname[]" value="" placeholder="User name">
+    
+    <input type=" text" id="accno" name="accno[]" value="" placeholder="account Number">
+    <input type="text" id="ideposit" name="amount[]" placeholder="Intialdeposit">
+    
+
+    
+    <p id = "length"></p>
+    <button type = "button" onclick="register()">register</button>
+    <button type="button" onclick="display()">display</button>
+
+
+    <br>
+    <br>
+    <input type="text" id = "loan_amt" name = "loan" value = "" placeholder="Enter Account Number">
+    <button type="button" onclick="loan_check()">Check Loan</button>
+    <h2>You are</h2>
+    <h4 id = "elegibility"></h4>
+    <style>
+        .names {
+            display: inline;
+            text-align: left;
+        }
+    </style>
+
+
+    
+
+
+
+    <script>
+        var user_names = new Array();
+        var acc_nums = new Array();
+        var amount = new Array();
+        
+       
+        function register(){
+            var name = document.getElementById("user").value;
+            var acc_no = parseInt(document.getElementById("accno").value);
+            var amt = parseInt(document.getElementById("ideposit").value);
+
+            user_names.push(name);
+            acc_nums.push(acc_no);
+            amount.push(amt);
+            console.log(user_names,acc_nums,amount);
+            
+           
+
+
+
+        }
+
+        function display(){
+            var  len = user_names.length;
+            document.getElementById("length").innerHTML = len;
+        }
+
+        
+        
+        function loan_check(){
+            var loan_ac = parseInt(document.getElementById("loan_amt").value);
+           
+            var ind = acc_nums.indexOf(loan_ac);
+            if(amount[ind]<=15000){
+                document.getElementById("elegibility").innerHTML = "Sorry Your Account Balance is low";
+            }
+            else{
+                document.getElementById("elegibility").innerHTML = "Congrats";
+            }           
+       
+            
+            
+            //document.getElementById("elegibility").innerHTML = loan_acc;
+            
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
